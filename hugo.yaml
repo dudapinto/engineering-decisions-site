@@ -4,6 +4,56 @@ title: Engineering Decisions
 theme:
   - PaperMod
 enableRobotsTXT: true
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: false
+
+languages:
+  en:
+    label: English
+    locale: en-US
+    weight: 1
+    params:
+      languageAltTitle: Engineering Decisions
+      homeInfoParams:
+        Title: Engineering Decisions
+        Content: Clear writing about software, systems, tradeoffs, and technical judgment.
+    menu:
+      main:
+        - identifier: essays
+          name: Essays
+          url: /posts/
+          weight: 10
+        - identifier: search
+          name: Search
+          url: /search/
+          weight: 20
+        - identifier: archive
+          name: Archive
+          url: /archives/
+          weight: 30
+  pt-br:
+    label: Português (Brasil)
+    locale: pt-BR
+    weight: 2
+    params:
+      languageAltTitle: Decisões de Engenharia
+      homeInfoParams:
+        Title: Decisões de Engenharia
+        Content: Textos claros sobre software, sistemas, trade-offs e julgamento técnico.
+    menu:
+      main:
+        - identifier: essays
+          name: Artigos
+          url: /posts/
+          weight: 10
+        - identifier: search
+          name: Busca
+          url: /search/
+          weight: 20
+        - identifier: archive
+          name: Arquivo
+          url: /archives/
+          weight: 30
 
 outputs:
   home:
@@ -66,21 +116,6 @@ params:
       - permalink
       - summary
       - content
-
-menu:
-  main:
-    - identifier: essays
-      name: Essays
-      url: /posts/
-      weight: 10
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 20
-    - identifier: archive
-      name: Archive
-      url: /archives/
-      weight: 30
 
 markup:
   highlight:

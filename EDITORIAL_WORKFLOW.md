@@ -8,6 +8,26 @@ Editorial source of truth lives in sibling repository:
 
 This repository is publication target only.
 
+## POSSE model
+
+Use POSSE here as:
+
+- Publish Own Source: write and maintain canonical article files in `../engineering-decisions`
+- Publish Own Site: copy approved article into this Hugo site
+- Syndicate Elsewhere: derive LinkedIn and other variants from editorial source repo, not from site repo
+
+This avoids maintaining article content twice.
+
+Published site files use Hugo language suffixes:
+
+- `content/posts/article-slug.en.md`
+- `content/posts/article-slug.pt-br.md`
+
+Future translations follow same pattern:
+
+- `content/posts/article-slug.es.md`
+- `content/posts/article-slug.fr.md`
+
 Rule:
 
 - Only published articles belong in `content/posts/`.
@@ -46,6 +66,62 @@ Move article into `content/posts/` only when:
 - article is approved for publication
 - publish date is decided
 - article is intended to be public now
+
+## Publish commands
+
+For local preview as draft:
+
+```sh
+make draft ARTICLE=001-ai-made-code-cheap
+```
+
+For final site copy:
+
+```sh
+make stage ARTICLE=001-ai-made-code-cheap
+```
+
+For only a subset of translations:
+
+```sh
+make stage ARTICLE=001-ai-made-code-cheap ARTICLE_LANGS="en pt-br"
+```
+
+Preview site:
+
+```sh
+make preview
+```
+
+These commands copy:
+
+- from `../engineering-decisions/03-articles/001-ai-made-code-cheap/article.en.md`
+- to `content/posts/ai-made-code-cheap.en.md`
+
+Portuguese publish copies:
+
+- from `../engineering-decisions/03-articles/001-ai-made-code-cheap/article.pt-br.md`
+- to `content/posts/ai-made-code-cheap.pt-br.md`
+
+Mode behavior:
+
+- `draft`: auto-detects available `article.<lang>.md` source files and forces local site copies to `draft: true`
+- `stage`: auto-detects available `article.<lang>.md` source files and forces local site copies to `draft: false`
+
+Commit and push only after `make stage ...`.
+
+## Canonical article format
+
+To avoid duplicate work, canonical source article should already be valid publish-ready Markdown.
+
+Recommended:
+
+- keep final English article in `article.en.md`
+- keep Portuguese adaptation in `article.pt-br.md`
+- include Hugo front matter there when article is approved
+- keep notes, references, and LinkedIn work beside them in source repo
+
+This way site repo only copies published article instead of re-authoring it.
 
 ## Content rule
 
