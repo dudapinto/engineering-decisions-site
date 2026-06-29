@@ -1,0 +1,90 @@
+baseURL: https://engineeringdecisions.dev/
+locale: en-us
+title: Engineering Decisions
+theme:
+  - PaperMod
+enableRobotsTXT: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  title: Engineering Decisions
+  description: Essays on software engineering, systems, tradeoffs, and technical judgment.
+  keywords:
+    - engineering
+    - software
+    - architecture
+    - decisions
+    - essays
+  author: Engineering Decisions
+  DateFormat: January 2, 2006
+  defaultTheme: auto
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: false
+  UseHugoToc: true
+  disableSpecial1stPost: true
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: true
+  tocopen: false
+  mainSections:
+    - posts
+  label:
+    text: Engineering Decisions
+  homeInfoParams:
+    Title: Engineering Decisions
+    Content: Clear writing about software, systems, tradeoffs, and technical judgment.
+  socialIcons:
+    - name: rss
+      url: /index.xml
+  editPost:
+    appendFilePath: true
+    Text: Suggest Change
+    URL: https://github.com/engineering-decisions-site/content
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.3
+    minMatchCharLength: 2
+    keys:
+      - title
+      - permalink
+      - summary
+      - content
+
+menu:
+  main:
+    - identifier: essays
+      name: Essays
+      url: /posts/
+      weight: 10
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 20
+    - identifier: archive
+      name: Archive
+      url: /archives/
+      weight: 30
+
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: false
