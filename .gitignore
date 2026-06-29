@@ -2,3 +2,6 @@
 public/
 .DS_Store
 resources/_gen/
+
+# Public repo: keep ideas/drafts/ready buffer private and local-only.
+editorial/
