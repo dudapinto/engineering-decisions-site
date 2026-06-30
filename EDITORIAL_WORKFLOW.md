@@ -8,6 +8,10 @@ Editorial source of truth lives in sibling repository:
 
 This repository is publication target only.
 
+Preferred deployment target:
+
+- Cloudflare Pages
+
 ## POSSE model
 
 Use POSSE here as:
@@ -109,6 +113,23 @@ Mode behavior:
 - `stage`: auto-detects available `article.<lang>.md` source files and forces local site copies to `draft: false`
 
 Commit and push only after `make stage ...`.
+
+## Deployment
+
+Preferred deployment flow:
+
+1. `make stage ARTICLE=<article-slug>`
+2. review with `make preview`
+3. commit and push this repository
+4. Cloudflare Pages builds and deploys from `main`
+
+Important:
+
+- `make stage` does not publish to internet by itself
+- public publication happens only when deployment runs
+- local Hugo server rebuilds are local preview only
+
+See [CLOUDFLARE_PAGES.md](/Users/douglaspinto/Developer/engineering-decisions-site/CLOUDFLARE_PAGES.md) for exact setup.
 
 ## Canonical article format
 
